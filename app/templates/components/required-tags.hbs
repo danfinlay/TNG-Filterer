@@ -1,0 +1,12 @@
+<section class="required-tags">
+  <h3>Required Tags</h3>
+  {{input value=searchFilter placeholder="Filter tags"}}
+
+  <ol>
+    {{#each sortedTags as |controller|}}
+      <li>
+        {{controller.tag.name}} ({{controller.tag.episodes.length}})
+      </li>
+    {{/each}}
+  </ol>
+</section>

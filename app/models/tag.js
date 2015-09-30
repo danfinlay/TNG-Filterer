@@ -11,6 +11,10 @@ export default DS.Model.extend({
     });
     return words.join(' ');
   }),
+  lower: Ember.computed('title', function(){
+    var title = this.get('title');
+    return title.toLowerCase();
+  }),
 
   episodes: DS.hasMany('episode')
 });
