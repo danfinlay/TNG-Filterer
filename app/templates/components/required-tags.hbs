@@ -5,6 +5,7 @@
   <ol>
     {{#each sortedTags as |controller|}}
       <li>
+        {{input type="checkbox" checked=controller.required}}
         {{controller.tag.name}} ({{controller.tag.episodes.length}})
       </li>
     {{/each}}

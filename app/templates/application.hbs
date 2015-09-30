@@ -2,6 +2,14 @@
 
 {{required-tags ctrls=tagControllers}}
 
+<button {{action 'suggest'}}>
+  Suggest New episode
+</button>
+
+{{#if suggestion}}
+  How about you watch episode {{suggestion.num}}, <a href={{suggestion.link}}>{{suggestion.title}}</a>?
+{{/if}}
+
 <!--
 <ol>
   {{#each model as |episode|}}
