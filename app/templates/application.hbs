@@ -1,3 +1,16 @@
-<h2 id="title">Welcome to Ember</h2>
+<h2 id="title">Star Trek Suggestor</h2>
 
-{{outlet}}
+<ol>
+  {{#each model as |episode|}}
+    <li>
+      <h2>{{episode.title}}</h2>
+      <ul>
+        {{#each episode.tags as |tag|}}
+          <li>
+            {{tag.name}}
+          </li>
+        {{/each}}
+      </ul>
+    </li>
+  {{/each}}
+</ol>
