@@ -1,7 +1,8 @@
-# Tng-filterer
+# TNG-filterer
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+A web application for filtering and randomizing recommendations for episodes of `Star Trek: The Next Generation`. Based on the work in [this UI](https://github.com/flyswatter/which-tng) and [this database generator](https://github.com/flyswatter/TNG-Database-Seeder).
+
+This is now an Ember application, to more easily keep track of the various filters and state. I'll be drawing in the best parts of the UI from the other project, and I've already imported an episode database, and it's available to the `applicationController` on start up, with `model` being an array of all episodes in order of release date, and `tags` being an array of all topics, or `References` ever touched on in more than one episode.
 
 ## Prerequisites
 
