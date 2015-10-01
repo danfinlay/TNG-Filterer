@@ -4,9 +4,10 @@ export default Ember.Component.extend({
 
   tagName: 'section',
   classNames: ['required-tags', 'tags'],
-  classNameBindings: ['key'],
+  classNameBindings: ['key', 'showing:showing:hidden'],
 
   searchFilter: '',
+  showing: false,
 
   title: Ember.computed('key', function(){
     var key = this.get('key');
@@ -39,6 +40,9 @@ export default Ember.Component.extend({
       ctrls.forEach(function(ctrl){
         ctrl.set(key, false);
       });
+    },
+    toggleShow: function(){
+      this.toggleProperty('showing');
     }
   }
 

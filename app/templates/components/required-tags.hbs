@@ -1,5 +1,6 @@
 <section class="filter-top">
   <h2>{{title}}</h2>
+  <div class="hide-toggle" {{action "toggleShow"}}>O</div>
   {{input value=searchFilter placeholder="SEARCH"}}
   <button {{action 'removeFilters'}}>
     Clear
