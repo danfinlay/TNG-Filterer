@@ -40,6 +40,7 @@ export default Ember.Component.extend({
       ctrls.forEach(function(ctrl){
         ctrl.set(key, false);
       });
+      this.set('searchFilter', '');
     },
     toggleShow: function(){
       this.toggleProperty('showing');
