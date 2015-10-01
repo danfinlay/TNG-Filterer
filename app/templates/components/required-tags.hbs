@@ -1,13 +1,15 @@
-<section class="required-tags">
-  <h3>Required Tags</h3>
+<section class="filter-top">
+  <h3>{{title}}</h3>
   {{input value=searchFilter placeholder="Filter tags"}}
+  <button {{action 'removeFilters'}}>
+    Clear Filters
+  </button>
+</section>
 
+<section class="scrollable-tags">
   <ol>
-    {{#each sortedTags as |controller|}}
-      <li>
-        {{input type="checkbox" checked=controller.required}}
-        {{controller.tag.name}} ({{controller.tag.episodes.length}})
-      </li>
+    {{#each firstHundredTags as |ctrl|}}
+      {{yield ctrl}}
     {{/each}}
   </ol>
 </section>

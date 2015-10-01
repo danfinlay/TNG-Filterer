@@ -1,15 +1,39 @@
-<h2 id="title">Star Trek Suggestor</h2>
+<header>
+  <h2 id="title">Star Trek Suggestor</h2>
+</header>
 
-{{required-tags ctrls=tagControllers}}
+<section class="body">
+  {{#required-tags ctrls=tagControllers key="required" as |ctrl|}}
+    {{filter-picker ctrl=ctrl filter=ctrl.required}}
+  {{/required-tags}}
 
-<button {{action 'suggest'}}>
-  Suggest New episode
-</button>
+  <section class="suggestion">
 
-{{#if suggestion}}
-  How about you watch episode {{suggestion.num}}, <a href={{suggestion.link}}>{{suggestion.title}}</a>?
-{{/if}}
+    <button {{action 'suggest'}}>
+      Suggest New episode
+    </button>
 
+    {{#if suggestion}}
+      <p>
+        How about you watch episode {{suggestion.num}}, <a href={{suggestion.link}}>{{suggestion.title}}</a>?
+      </p>
+    {{/if}}
+
+    <section class="full-episode-list">
+      <ol>
+        {{#each eligible as |episode|}}
+          <li>
+            {{episode.num}}: {{episode.title}}
+          </li>
+        {{/each}}
+      </ol>
+    </section>
+  </section>
+
+  {{#required-tags ctrls=tagControllers key="rejected" as |ctrl|}}
+    {{filter-picker ctrl=ctrl filter=ctrl.rejected}}
+  {{/required-tags}}
+</section>
 <!--
 <ol>
   {{#each model as |episode|}}

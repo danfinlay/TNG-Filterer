@@ -19,23 +19,35 @@ export default Ember.Controller.extend({
   requiredTagControllers: Ember.computed.filterBy('tagControllers', 'required'),
   requiredTags: Ember.computed.mapBy('requiredTagControllers', 'tag'),
   requiredCount: Ember.computed.alias('requiredTags.length'),
-  hasRequirements: Ember.computed.bool('requiredCount'),
 
-  eligible: Ember.computed('tagControllers.@each.required', function(){
+  rejectedTagControllers: Ember.computed.filterBy('tagControllers', 'rejected'),
+  rejectedTags: Ember.computed.mapBy('rejectedTagControllers', 'tag'),
+  rejectedCount: Ember.computed.alias('rejectedTags.length'),
+
+  eligible: Ember.computed('rejectedCount', 'requiredCount', 'model.@each',
+                                   function(){
     var eps = this.get('model');
-
     var requiredTags = this.get('requiredTags');
+    var rejectedTags = this.get('rejectedTags');
+
     return eps.filter(function(ep){
-      var unmatched = false;
       var epTags = ep.get('tags');
-      requiredTags.forEach(function(tag){
-        if (!epTags.contains(tag)){
-          unmatched = true;
-          return true;
+      var good = true;
+
+      requiredTags.forEach(function(requiredTag){
+        if (!epTags.contains(requiredTag)){
+          good = false;
         }
       });
-      return !unmatched;
-    });
+
+      rejectedTags.forEach(function(rejectedTag){
+        if (epTags.contains(rejectedTag)){
+          good = false;
+        }
+      });
+
+      return good;
+    })
   }),
 
   actions: {
