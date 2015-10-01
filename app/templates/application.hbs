@@ -1,52 +1,42 @@
-<header>
-  <h2 id="title">Star Trek Suggestor</h2>
-</header>
+{{space-background}}
 
-<section class="body">
-  {{#required-tags ctrls=tagControllers key="required" as |ctrl|}}
-    {{filter-picker ctrl=ctrl filter=ctrl.required}}
-  {{/required-tags}}
+<div class="overlay">
+  <header>
+    <h2 id="title">Star Trek Suggestor</h2>
+  </header>
 
-  <section class="suggestion">
+  <section class="body">
+    {{#required-tags ctrls=tagControllers key="required" as |ctrl|}}
+      {{filter-picker ctrl=ctrl filter=ctrl.required}}
+    {{/required-tags}}
 
-    <button {{action 'suggest'}}>
-      Suggest New episode
-    </button>
+    <section class="suggestion">
 
-    {{#if suggestion}}
-      <p>
-        How about you watch episode {{suggestion.num}}, <a href={{suggestion.link}}>{{suggestion.title}}</a>?
-      </p>
-    {{/if}}
+      <section class="suggestion-header">
+        <button {{action 'suggest'}}>
+          Suggest New episode
+        </button>
 
-    <section class="full-episode-list">
-      <ol>
-        {{#each eligible as |episode|}}
-          <li>
-            {{episode.num}}: {{episode.title}}
-          </li>
-        {{/each}}
-      </ol>
+        {{#if suggestion}}
+          <p>
+            How about episode {{suggestion.num}}, <a href={{suggestion.link}}>{{suggestion.title}}</a>?
+          </p>
+        {{/if}}
+      </section>
+
+      <section class="full-episode-list">
+        <ol>
+          {{#each eligible as |episode|}}
+            <li>
+              <a href={{episode.link}}>{{episode.num}}: {{episode.title}}</a>
+            </li>
+          {{/each}}
+        </ol>
+      </section>
     </section>
-  </section>
 
-  {{#required-tags ctrls=tagControllers key="rejected" as |ctrl|}}
-    {{filter-picker ctrl=ctrl filter=ctrl.rejected}}
-  {{/required-tags}}
-</section>
-<!--
-<ol>
-  {{#each model as |episode|}}
-    <li>
-      <h2>{{episode.title}}</h2>
-      <ul>
-        {{#each episode.tags as |tag|}}
-          <li>
-            {{tag.name}}
-          </li>
-        {{/each}}
-      </ul>
-    </li>
-  {{/each}}
-</ol>
--->
+    {{#required-tags ctrls=tagControllers key="rejected" as |ctrl|}}
+      {{filter-picker ctrl=ctrl filter=ctrl.rejected}}
+    {{/required-tags}}
+  </section>
+</div>

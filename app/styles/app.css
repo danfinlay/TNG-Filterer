@@ -1,11 +1,41 @@
-html, body {
+html, body, .overlay {
   padding: 0px; margin: 0px;
   height: 100%; width: 100%;
+
+  color: rgb(40,102,186);
+  margin: 0px; padding:0px; overflow: hidden;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
-body > div {
+body > div { height: 100%; }
+div.overlay {
   display:flex;
   flex-direction: column;
-  height: 100%
+  min-height: 0px;
+  padding-top: 20px;
+  color: #ABADFF;
+  perspective: 500px;
+}
+header, .suggestion-header {
+  text-align: center;
+  align-items: center;
+  flex: 0 1 auto;
+  position: relative;
+}
+
+input {
+  font-size: 14pt;
+  font-family: Montalbon, sans-serif;
+  background: rgba(0,0,0,0);
+  color: rgb(77, 153, 255);
+  border: 3px solid rgb(77, 153, 255);
+  border-radius: 7px;
+  padding: 8px;
+}
+input[type="checkbox"]:checked {
+  width: 15px;
 }
 
 section.body {
@@ -15,10 +45,6 @@ section.body {
   position: relative;
 }
 
-header{
-  flex: 0 1 auto;
-  position: relative;
-}
 section.main{
   flex: 1 0 auto;
   display: flex;
@@ -29,34 +55,144 @@ section.main{
 section.full-episode-list {
   min-height: 0px; min-width: 0px;
   overflow-y: auto;
+  overflow-x: hidden;
   flex: 1;
+}
+ol, ul {
+  list-style: none;
+  list-style-type:none;
 }
 
 section.tags {
-  flex: 0 0 auto;
-  display: flex;
-  position: relative;
-  flex-direction: column;
-  width: 250px;
-}
-section.filter-top {
-  flex: 0 0 auto;
-  box-flex: 0;
-}
-section.scrollable-tags {
-  min-width: 0; min-height: 0;
-  overflow-y: auto;
-  flex: 1;
-}
-section.tags ol {
-}
-
-section.suggestion {
   flex: 1 0 auto;
   display: flex;
   position: relative;
   flex-direction: column;
-  width: 350px;
+  list-style: none;
+  list-style-type:none;
+}
+section.filter-top {
+  flex: 0 0 auto;
+  box-flex: 0;
+  padding-left: 42px;
+}
+.filter-top h3 {
+  margin-bottom: 0px;
+}
+section.scrollable-tags {
+  min-width: 0; min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  flex: 1;
+}
+
+section.suggestion {
+  flex: 2 0 auto;
+  display: flex;
+  position: relative;
+  flex-direction: column;
   min-height: 0px;
   align-items: center;
+}
+
+#WebGL-output{
+  z-index:0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+#WebGL-output canvas{
+  width: 100%;
+  height: 100%;
+}
+.suggestion {
+  z-index: 3;
+}
+
+@font-face {
+  font-family: 'Star Trek';
+  font-weight:400;
+  src:local('Star Trek TNG'), local('Star Trek TNG Title'),
+      url(fonts/TNG_Title.otf) format('opentype'),
+      url(fonts/TNG_Title.woff2) format('woff2'),
+      url(fonts/TNG_Title.0) format('woff');
+}
+@font-face {
+  font-family: 'Montalbon';
+  font-weight:400;
+  src:local('Montalbon Condensed Italic'),
+      url(fonts/Montalban.otf) format('opentype');
+}
+h1, h2, h3 {
+  color: rgb(77, 153, 255);
+  font-family: 'Star Trek', 'San Francisco', 'Helvetica', 'serif';
+  text-shadow: 1px 1px 15px #5847E3;
+  animation: throb 3s infinite;
+  z-index: 3;
+  line-height: 78%
+  margin-bottom: 0px;
+}
+@keyframes throb {
+  0% { text-shadow: 1px 1px 15px #5738FF }
+  50% { text-shadow: 1px 1px 20px #806BF1 }
+  100% { text-shadow: 1px 1px 15px #5738FF; }
+}
+
+h1 { font-size: 55pt;}
+h2 { font-size: 38pt;}
+section {
+  font-size: 18pt;
+  font-family: Montalbon, sans-serif;
+}
+a{
+  text-decoration: none;
+  color: inherit;
+}
+a:hover{
+  color: #CFCFFF;
+}
+button {
+  margin: 20px;
+  background: rgba(0,0,0,0);
+
+  color: rgb(77, 153, 255);
+  font-size: 12pt;
+  font-family: Montalbon, sans-serif;
+
+  border-radius: 5px;
+  border: 3px solid #4D99FF;
+  transition: color 0.7s;
+}
+button:hover {
+  color: #ABADFF;
+  border: 3px solid #ABADFF;
+}
+button:focus { outline: 0; }
+
+#enterprise{
+  z-index: -1;
+  position: relative;
+
+  /*transform: translateX(-14000px) translateZ(-10000px) translateY(-3000px);*/
+  animation: swoop 8s infinite;
+}
+@keyframes swoop {
+  0% {
+    transform: translateX(-140000px) translateZ(-100000px) translateY(0px);
+  }
+  40% {
+    transform: translateX(-14000px) translateZ(-10000px) translateY(-3000px);
+  }
+  50% {
+    transform: translateZ(100px) translateX(1600px) translateY(-900px);
+  }
+  51% {
+    transform: translateX(129998px) translateZ(-100000px) translateY(0) scaleX(-1)
+  }
+  90% {
+    transform: translateX(9598px) translateZ(-8000px) translateY(-1000px) scaleX(-1)
+  }
+  100% {
+    transform: translateX(-1900px) translateZ(100px) translateY(-600px) scaleX(-1)
+  }
 }

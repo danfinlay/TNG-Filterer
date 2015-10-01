@@ -5,12 +5,12 @@ export default Ember.Component.extend({
   tagName: 'section',
   classNames: ['required-tags', 'tags'],
   classNameBindings: ['key'],
-  
+
   searchFilter: '',
 
   title: Ember.computed('key', function(){
     var key = this.get('key');
-    return Ember.String.capitalize(key) + ' Tags';
+    return Ember.String.capitalize(key);
   }),
 
   firstHundredTags: Ember.computed('sortedTags.@each', function(){
