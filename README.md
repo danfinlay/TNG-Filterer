@@ -44,6 +44,8 @@ Make use of the many generators for code, try `ember help generate` for more det
 
 Currently deployed to `Github Pages` using [this Ember Addon](https://github.com/poetic/ember-cli-github-pages).
 
+Deploy example: `ember github-pages:commit --message "Initial gh-pages release"`
+
 ## Further Reading / Useful Links
 
 * [ember.js](http://emberjs.com/)
@@ -51,4 +53,3 @@ Currently deployed to `Github Pages` using [this Ember Addon](https://github.com
 * Development Browser Extensions
   * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
   * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
-
