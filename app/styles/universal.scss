@@ -1,0 +1,84 @@
+html, body, .overlay {
+  padding: 0px; margin: 0px;
+  height: 100%; width: 100%;
+
+  color: rgb(40,102,186);
+  margin: 0px; padding:0px; overflow: hidden;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+body > div { height: 100%; }
+body > div.ember-view { z-index: 2 }
+body {perspective: 500px; background: black;}
+p { margin-bottom: 2px; }
+
+ol, ul {
+  list-style: none;
+  list-style-type:none;
+}
+::-webkit-scrollbar, ::scrollbar {
+display: none;
+}
+
+header, .suggestion-header {
+  text-align: center;
+  align-items: center;
+  flex: 0 1 auto;
+  position: relative;
+}
+header h2 {
+  margin: 10px;
+}
+
+input {
+  font-size: 14pt;
+  font-family: Montalbon, sans-serif;
+  background: rgba(0,0,0,0);
+  color: rgb(77, 153, 255);
+  border: 3px solid rgb(77, 153, 255);
+  border-radius: 7px;
+  padding: 8px;
+}
+input[type="checkbox"]:checked {
+  width: 15px;
+}
+div.spring {
+  flex: 1 0 auto;
+  max-width: 100%;
+}
+
+h1 { font-size: 55pt;}
+h2 { font-size: 38pt;}
+section, .scrollable-tags {
+  font-size: 18pt;
+  font-family: Montalbon, sans-serif;
+}
+a{
+  color: #ABADFF;
+  text-decoration: none;
+  color: inherit;
+}
+a:hover{
+  color: #CFCFFF;
+}
+button {
+  margin: 5px;
+  background: rgba(0,0,0,0);
+
+  color: rgb(77, 153, 255);
+  font-size: 12pt;
+  font-family: Montalbon, sans-serif;
+
+  border-radius: 5px;
+  border: 3px solid #4D99FF;
+  transition: color 0.7s;
+
+  &:hover {
+    color: #ABADFF;
+    border: 3px solid #ABADFF;
+  }
+  
+  &:focus { outline: 0; }
+}

@@ -2,9 +2,9 @@
 <div class="full-width">
   <section class="filter-top">
     <h2>{{title}}</h2>
-    <div class="hide-toggle" {{action "toggleShow"}}>
+    <button class="hide-toggle" {{action "toggleShow"}}>
       {{#if adding}}+{{else}}-{{/if}}
-    </div>
+    </button>
     {{input value=searchFilter placeholder="SEARCH"}}
     <button {{action 'removeFilters'}}>
       Clear
