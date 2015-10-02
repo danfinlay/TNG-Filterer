@@ -62,6 +62,8 @@ export default Ember.Component.extend({
     scene.add( spotLight2 );
 
     $("#WebGL-output").append(renderer.domElement);
+    $('canvas').css('width', '100%')
+    $('canvas').css('height', '100%')
 
     //call render loop once
     render();

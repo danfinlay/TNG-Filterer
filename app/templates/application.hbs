@@ -1,42 +1,44 @@
 {{space-background}}
 
 <div class="overlay">
-  <header>
-    <h2 id="title">Star Trek Suggestor</h2>
-  </header>
-
   <section class="body">
-    {{#required-tags ctrls=tagControllers key="required" as |ctrl|}}
-      {{filter-picker ctrl=ctrl filter=ctrl.required}}
-    {{/required-tags}}
 
-    <section class="suggestion">
+    <div class="spring"></div>
 
-      <section class="suggestion-header">
+    <div class="full-width">
+      <header>
+        <h2 id="title">Star Trek Suggestor</h2>
+
         <button {{action 'suggest'}}>
           Suggest New episode
         </button>
 
         {{#if suggestion}}
           <p>
-            How about episode {{suggestion.num}}, <a href={{suggestion.link}}>{{suggestion.title}}</a>?
+            How about episode {{suggestion.num}}, <a href={{suggestion.link}} target="_blank">{{suggestion.title}}</a>?
           </p>
         {{/if}}
-      </section>
+      </header>
 
       <section class="full-episode-list">
         <ol>
           {{#each eligible as |episode|}}
             <li>
-              <a href={{episode.link}}>{{episode.num}}: {{episode.title}}</a>
+              <a href={{episode.link}} target="_blank">{{episode.num}}: {{episode.title}}</a>
             </li>
           {{/each}}
         </ol>
       </section>
-    </section>
+    </div>
 
-    {{#required-tags ctrls=tagControllers key="rejected" as |ctrl|}}
-      {{filter-picker ctrl=ctrl filter=ctrl.rejected}}
-    {{/required-tags}}
+    <div class="spring"></div>
   </section>
 </div>
+
+{{#required-tags ctrls=tagControllers key="rejected" as |ctrl|}}
+  {{filter-picker ctrl=ctrl filter=ctrl.rejected}}
+{{/required-tags}}
+
+{{#required-tags ctrls=tagControllers key="required" as |ctrl|}}
+  {{filter-picker ctrl=ctrl filter=ctrl.required}}
+{{/required-tags}}

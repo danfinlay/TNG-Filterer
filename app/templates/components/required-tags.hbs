@@ -1,16 +1,24 @@
-<section class="filter-top">
-  <h2>{{title}}</h2>
-  <div class="hide-toggle" {{action "toggleShow"}}>O</div>
-  {{input value=searchFilter placeholder="SEARCH"}}
-  <button {{action 'removeFilters'}}>
-    Clear
-  </button>
-</section>
+<div class="spring"></div>
+<div class="full-width">
+  <section class="filter-top">
+    <h2>{{title}}</h2>
+    <div class="hide-toggle" {{action "toggleShow"}}>
+      {{#if adding}}+{{else}}-{{/if}}
+    </div>
+    {{input value=searchFilter placeholder="SEARCH"}}
+    <button {{action 'removeFilters'}}>
+      Clear
+    </button>
+  </section>
 
-<section class="scrollable-tags">
-  <ol>
-    {{#each firstHundredTags as |ctrl|}}
-      {{yield ctrl}}
-    {{/each}}
-  </ol>
-</section>
+  <section class="scrollable-tags">
+    <ol>
+      {{#each firstHundredTags as |ctrl|}}
+        {{yield ctrl}}
+      {{/each}}
+    </ol>
+  </section>
+</div>
+{{#unless adding}}
+  <div class="spring"></div>
+{{/unless}}

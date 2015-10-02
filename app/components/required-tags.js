@@ -3,7 +3,7 @@ import Ember from 'ember';
 export default Ember.Component.extend({
 
   tagName: 'section',
-  classNames: ['required-tags', 'tags'],
+  classNames: ['tags', 'full-width'],
   classNameBindings: ['key', 'showing:showing:hidden'],
 
   searchFilter: '',
@@ -31,6 +31,11 @@ export default Ember.Component.extend({
       var tagTitle = ctrl.get('tag.lower');
       return tagTitle.indexOf(filter) !== -1;
     });
+  }),
+
+  adding: Ember.computed('key', function(){
+    var key = this.get('key')
+    return key === 'required'
   }),
 
   actions: {
