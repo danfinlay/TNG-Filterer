@@ -10,6 +10,7 @@
   "scripts": {
     "build": "ember build",
     "start": "ember server",
+    "deploy": "ember github-pages:commit --message 'new deploy' && git push origin gh-pages && git checkout master",
     "test": "ember test"
   },
   "repository": "",
