@@ -1,0 +1,34 @@
+// Animated Enterprise that Swoops Back and Forth
+
+#enterprise{
+  /*Chrome,Safari*/
+  -webkit-clip-path: polygon(339px 129px,169px 193px,65px 260px,27px 341px,41px 397px,91px 461px,179px 521px,346px 593px,511px 636px,571px 652px,635px 656px,678px 679px,719px 723px,735px 756px,746px 801px,743px 825px,725px 835px,645px 867px,593px 897px,578px 928px,570px 959px,526px 964px,450px 953px,418px 932px,442px 921px,485px 884px,489px 800px,493px 784px,483px 743px,466px 724px,390px 720px,359px 752px,313px 871px,321px 893px,350px 916px,386px 925px,391px 961px,406px 991px,467px 1017px,581px 1009px,619px 1040px,669px 1055px,762px 1051px,839px 1044px,970px 1043px,1033px 1027px,1074px 997px,1098px 944px,1214px 861px,1237px 825px,1235px 805px,1207px 784px,1158px 781px,1121px 793px,991px 869px,894px 824px,898px 788px,922px 751px,962px 719px,1021px 697px,1106px 697px,1199px 688px,1418px 681px,1613px 643px,1749px 595px,1854px 531px,1897px 467px,1894px 405px,1855px 331px,1761px 259px,1633px 203px,1390px 137px,1138px 100px,950px 84px,677px 85px,462px 109px);
+
+  z-index: 1;
+  position: absolute;
+
+  animation: swoop 14s infinite;
+}
+@keyframes swoop {
+  0% {
+    @include transform(translateX(-39000px));
+  }
+  46% {
+    @include transform(translateX(-14000px) translateZ(-10000px) translateY(5030px));
+  }
+  50% {
+    @include transform( translateX(2593px) translateZ(0px) translateY(-670px) scaleX(1));
+  }
+  51%{
+    @include transform(translateX(40798px) translateZ(-50760px) translateY(15000px) scaleX(-1))
+  }
+  52% {
+    @include transform(translateX(40798px) translateZ(-20760px) translateY(15000px) scaleX(-1));
+  }
+  96% {
+    @include transform(translateX(9598px) translateZ(-8000px) translateY(3900px) scaleX(-1))
+  }
+  100% {
+    @include transform(translateX(-2010px) translateZ(0px) translateY(-800px) scaleX(-1))
+  }
+}

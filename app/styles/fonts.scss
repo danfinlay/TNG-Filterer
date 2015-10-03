@@ -1,0 +1,14 @@
+@font-face {
+  font-family: 'Star Trek';
+  font-weight:400;
+  src:local('Star Trek TNG'), local('Star Trek TNG Title'),
+      url(fonts/TNG_Title.otf) format('opentype'),
+      url(fonts/TNG_Title.woff2) format('woff2'),
+      url(fonts/TNG_Title.0) format('woff');
+}
+@font-face {
+  font-family: 'Montalbon';
+  font-weight:400;
+  src:local('Montalbon Condensed Italic'),
+      url(fonts/Montalban.otf) format('opentype');
+}
