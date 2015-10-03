@@ -25,7 +25,7 @@ display: none;
 header, .suggestion-header {
   text-align: center;
   align-items: center;
-  flex: 0 1 auto;
+  @include flex( 0 1 auto );
   position: relative;
 }
 header h2 {
@@ -45,7 +45,7 @@ input[type="checkbox"]:checked {
   width: 15px;
 }
 div.spring {
-  flex: 1 0 auto;
+  @include flex( 1 0 auto );
   max-width: 100%;
 }
 
