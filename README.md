@@ -1,6 +1,6 @@
 # TNG-filterer
 
-[Live Example](http://tng.danfinlay.com)
+[Live Example](https://danfinlay.github.io/TNG-Filterer/)
 
 A web application for filtering and randomizing recommendations for episodes of `Star Trek: The Next Generation`. Based on the work in [this UI](https://github.com/danfinlay/which-tng) ([Example here](danfinlay.github.io/which-tng)) and [this database generator](https://github.com/danfinlay/TNG-Database-Seeder).
 
